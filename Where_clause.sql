@@ -33,3 +33,21 @@ WHERE DEPARTMENT_ID IS NOT NULL ;
 
 SELECT * FROM dlithe.dbo.S_HREMPLOYEES 
 WHERE DEPARTMENT_ID IN (50,60,90);
+
+select first_name, salary
+from DBO.S_HREMPLOYEES 
+where salary > (
+              select SALARY  
+              from DBO.S_HREMPLOYEES 
+              where FIRST_NAME like 'alexander'
+            ) AND 
+            salary < (
+              select salary from DBO.S_HREMPLOYEES 
+              where FIRST_NAME like 'steven'
+            );
+     select * from  DBO.S_HREMPLOYEES;
+      
+
+
+
+
